@@ -6,7 +6,7 @@
 '- Creates tokens for each returned Excel cell value.
 '- Deletes the exported .xlsx file.
 
-'Important: In order for the Workflow Serve to interface with an Excel file, a few things have to be set up:
+'Important: In order for the Workflow Server to interface with an Excel file, a few things have to be set up:
 '
 '1: See here: http://stackoverflow.com/questions/14037412/cannot-access-excel-file/16236873#16236873 These folders must be created.
 '2: Ensure that the Workflow Server service has "Allow service to interact with desktop" selected. This is configured in Windows' Services window.
