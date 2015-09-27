@@ -1,0 +1,28 @@
+<!--
+    If you attempt to pass too many parameters to Laserfiche Forms, IIS will stop the request. 
+    This is because the IIS's `maxQueryStringLength` and `maxQueryString` limits are kicking in. 
+    If you need to pass a large number of URL parameters to Forms, you can increase these limits.
+    
+    To do so:
+    
+    1. Browse to Forms' install directory (e.g., C:\Program Files\Laserfiche\Laserfiche Forms\Forms).
+    2. Open `Web.config` in a text editor.
+    3. Change the XML in the following ways:
+      a. In the `requestLimits` node, add `maxQueryString="X"`, where `X` is the limit you want to set.` See Example 1 below.
+      b. In the `httpRuntime` node, add `maxQueryStringLength="X"`, where `X` is the limit you want to set.` See Example 2 below.
+    4. Reset IIS.
+  -->
+  
+<!--Example 1 -->
+<security>
+  <requestFiltering>
+    <requestLimits maxAllowedContentLength="4294967295" maxQueryString="2097151" />
+  </requestFiltering>
+</security>
+
+<!--Example 2 -->
+<system.web>
+    <customErrors mode="RemoteOnly">
+      <error statusCode="404" redirect="~/Home/Error404" />
+    </customErrors>
+    <httpRuntime enableVersionHeader="false" maxRequestLength="67108864" executionTimeout="43200" maxQueryStringLength="2097151"/>
