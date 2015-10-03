@@ -1,0 +1,7 @@
+If you have a bunch of differet Laserfiche Forms that all use the *same* JavaScript, you can avoid breaking th "don't repeat yourself" (DRY) princiapl by definining the code *once* in a function, in a stand-alone file, then referencing that file in the master Forms template.
+
+1: Create your `.js` file in: C:\Program Files\Laserfiche\Laserfiche Forms\Forms\lib
+2: Reference the file in C:\Program Files\Laserfiche\Laserfiche Forms\Forms\Views\Form\_FormLayout.cshtml, around Line 127.
+3: Restart IIS to be safe.
+
+After you complete the steps above, any of your forms can leverage functions defined in your custom `.js` file.
